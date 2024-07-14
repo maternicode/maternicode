@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="assets\images\cone-do-site-128x128.png" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Usuário</title>
+    <link rel="stylesheet" href="assets\styles.css">
+
+</head>
+<body>
+    <div class="container">
+        <h1>Crie sua conta</h1>
+        <form id="signup-form">
+            <label for="name">Nome:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="username">Usuário:</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="dob">Data de Nascimento:</label>
+            <input type="date" id="dob" name="dob" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <label for="confirm-password">Confirme a Senha:</label>
+            <input type="password" id="confirm-password" name="confirm-password" required>
+            
+            <label for="is-mother">Você é mãe?</label>
+            <select id="is-mother" name="is-mother" required>
+                <option value="yes">Sim</option>
+                <option value="no">Não</option>
+            </select>
+            
+            <label for="support-network">Você tem uma rede de apoio significativa?</label>
+            <select id="support-network" name="support-network" required>
+                <option value="yes">Sim</option>
+                <option value="no">Não</option>
+            </select>
+            
+            <label for="current-status">Situação Atual:</label>
+            <select id="current-status" name="current-status" required>
+                <option value="working">Trabalha na área tecnológica</option>
+                <option value="working-other-area">Trabalha em outra área</option>
+                <option value="studying">Está na faculdade</option>
+                <option value="unemployed">Desempregada</option>
+                <option value="studying-working">Estuda e trabalha</option>
+            </select>
+            
+            <div id="additional-info" style="display: none;">
+                <label for="area">Área de trabalho/graduação:</label>
+                <input type="text" id="area" name="area">
+            </div>
+            
+            <a type="submit" href="plataforma.html" id="cadastro-btn" disabled>Cadastrar</a>
+        </form>
+
+        <script>
+            const form = document.getElementById('signup-form');
+            const cadastroBtn = document.getElementById('cadastro-btn');
+        
+            form.addEventListener('input', () => {
+                const inputs = form.querySelectorAll('input[required]');
+                const isFormValid = Array.from(inputs).every(input => input.value.trim() !== '');
+        
+                if (isFormValid) {
+                    cadastroBtn.removeAttribute('disabled');
+                } else {
+                    cadastroBtn.setAttribute('disabled', 'true');
+                }
+            });
+        </script>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
